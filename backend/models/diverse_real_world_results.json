@@ -1,0 +1,115 @@
+{
+    "device_used": "cuda:0",
+    "real_world_photos": {
+        "total_images": 8,
+        "predicted_real": 6,
+        "predicted_fake": 2,
+        "percentage_real": 75.0,
+        "percentage_fake": 25.0,
+        "average_confidence": 0.8367412984371185,
+        "details": [
+            {
+                "filename": "edit.jpg",
+                "prediction": "fake",
+                "confidence": 0.992916464805603
+            },
+            {
+                "filename": "myima.jpg",
+                "prediction": "real",
+                "confidence": 0.7808881998062134
+            },
+            {
+                "filename": "WhatsApp Image 2026-09-28 at 10.11.40 PM.jpeg",
+                "prediction": "real",
+                "confidence": 0.9344081282615662
+            },
+            {
+                "filename": "WhatsApp Image 2026-09-28 at 10.11.41 PM.jpeg",
+                "prediction": "real",
+                "confidence": 0.9533756971359253
+            },
+            {
+                "filename": "WhatsApp Image 2026-09-28 at 10.11.42 PM.jpeg",
+                "prediction": "real",
+                "confidence": 0.8341665863990784
+            },
+            {
+                "filename": "WhatsApp Image 2026-09-28 at 10.11.44 PM.jpeg",
+                "prediction": "real",
+                "confidence": 0.5270043611526489
+            },
+            {
+                "filename": "{18781360-EFF3-48DA-901B-A573CF44697F}.png",
+                "prediction": "real",
+                "confidence": 0.7519379258155823
+            },
+            {
+                "filename": "{8F1E20C1-A677-474B-827D-E449BD08B36C}.png",
+                "prediction": "fake",
+                "confidence": 0.9192330241203308
+            }
+        ],
+        "skipped": []
+    },
+    "ai_generated_photos": {
+        "total_images": 10,
+        "predicted_fake": 4,
+        "predicted_real": 6,
+        "ai_detection_rate": 40.0,
+        "false_negative_rate": 60.0,
+        "average_confidence": 0.8160147309303284,
+        "details": [
+            {
+                "filename": "42bde7f4-8e1c-4205-bffe-5a23feae468a_medium.webp",
+                "prediction": "real",
+                "confidence": 0.5292797088623047
+            },
+            {
+                "filename": "image 6.webp",
+                "prediction": "fake",
+                "confidence": 0.7110825777053833
+            },
+            {
+                "filename": "image 8.jpg",
+                "prediction": "real",
+                "confidence": 0.7115276455879211
+            },
+            {
+                "filename": "image s7.jpg",
+                "prediction": "real",
+                "confidence": 0.7996310591697693
+            },
+            {
+                "filename": "image.avif",
+                "prediction": "fake",
+                "confidence": 0.7248028516769409
+            },
+            {
+                "filename": "image.webp",
+                "prediction": "fake",
+                "confidence": 0.9891302585601807
+            },
+            {
+                "filename": "image1.avif",
+                "prediction": "fake",
+                "confidence": 0.9886735081672668
+            },
+            {
+                "filename": "images.jpg",
+                "prediction": "real",
+                "confidence": 0.8184236884117126
+            },
+            {
+                "filename": "WhatsApp Image 2026-09-28 at 10.32.40 PM.jpeg",
+                "prediction": "real",
+                "confidence": 0.9280021786689758
+            },
+            {
+                "filename": "WhatsApp Image 2026-09-28 at 10.33.39 PM.jpeg",
+                "prediction": "real",
+                "confidence": 0.9595938324928284
+            }
+        ],
+        "skipped": []
+    }
+}

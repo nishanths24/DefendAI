@@ -1,0 +1,35 @@
+{
+    "device_used": "cuda:0",
+    "accuracy": 0.881,
+    "precision": 0.9018987341772152,
+    "recall": 0.855,
+    "f1_score": 0.87782340862423,
+    "roc_auc": 0.9478779999999999,
+    "average_confidence": 0.886024441242218,
+    "correct_predictions": 1762,
+    "incorrect_predictions": 238,
+    "fake_detection_rate": 0.907,
+    "real_detection_rate": 0.855,
+    "per_class_metrics": {
+        "fake": {
+            "precision": 0.8621673003802282,
+            "recall": 0.907,
+            "f1_score": 0.8840155945419104
+        },
+        "real": {
+            "precision": 0.9018987341772152,
+            "recall": 0.855,
+            "f1_score": 0.87782340862423
+        }
+    },
+    "confusion_matrix": [
+        [
+            907,
+            93
+        ],
+        [
+            145,
+            855
+        ]
+    ]
+}

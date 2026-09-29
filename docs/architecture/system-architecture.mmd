@@ -1,0 +1,56 @@
+graph TD
+    classDef user fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b;
+    classDef frontend fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,color:#4a148c;
+    classDef backend fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20;
+    classDef ml fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100;
+    classDef db fill:#eceff1,stroke:#607d8b,stroke-width:2px,color:#263238;
+    classDef err fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#b71c1c;
+
+    User([User]) ::: user -->|Upload Image| WebFrontend
+
+    subgraph Frontend [Frontend System]
+        WebFrontend["Web Frontend\n(Next.js + React + TypeScript)"] ::: frontend
+        Dashboard["Result Dashboard\n(REAL/FAKE & Confidence)"] ::: frontend
+    end
+
+    WebFrontend -->|multipart/form-data| FastAPIBackend
+
+    subgraph Backend [Backend API (FastAPI)]
+        FastAPIBackend["FastAPI Backend"] ::: backend
+        
+        FileVal["File Validation\n- JPG/PNG/WebP\n- Max 10 MB\n- Corrupt-file detection"] ::: backend
+        
+        Security["Input Integrity & Anomaly Detection\n- Low-variance image detection"] ::: backend
+        
+        Preprocess["Image Preprocessing\n- Resize to 224x224\n- ImageNet normalization"] ::: backend
+        
+        Response["FastAPI Response\n(JSON)"] ::: backend
+    end
+
+    FastAPIBackend --> FileVal
+    FileVal -->|Valid| Security
+    Security -->|Passed checks| Preprocess
+
+    FileVal -.->|Invalid/Corrupt| Err400["HTTP 400\n(Bad Request)"] ::: err
+    FileVal -.->|Oversized| Err413["HTTP 413\n(Payload Too Large)"] ::: err
+    Security -.->|Anomalous| Err422["HTTP 422\n(Unprocessable Entity)"] ::: err
+
+    subgraph ML [Machine Learning Model]
+        ResNet["ResNet18 Deep Learning Model\n- PyTorch (CUDA when available)\n- Class 0 = FAKE\n- Class 1 = REAL"] ::: ml
+        Pred["Prediction Result\n- REAL/FAKE\n- Confidence Score\n- Processing Device"] ::: ml
+    end
+
+    Preprocess --> ResNet
+    ResNet --> Pred
+    Pred --> Response
+
+    subgraph Database [Database Logging (Optional)]
+        Supabase[("Supabase Logging\n- Filename\n- Prediction\n- Confidence\n(If credentials configured)")] ::: db
+    end
+
+    Pred -->|Log details| Supabase
+
+    Response --> Dashboard
+    Err400 -.-> Dashboard
+    Err413 -.-> Dashboard
+    Err422 -.-> Dashboard
